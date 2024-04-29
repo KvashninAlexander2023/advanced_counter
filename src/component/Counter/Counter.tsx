@@ -4,11 +4,26 @@ import { useState } from "react";
 import { Button } from "../../component/Button/Button";
 // import s from "./component/Counter.module.css";
 
-export function Counter() {
-  const [count, setCount] = useState<number>(0);
 
-  const minValue = 0;
-  const maxValue = 5;
+
+type minMaxValueType =  {
+  minValue: number
+  maxValue: number
+}
+
+type CounterPropsType = {
+  changeData:boolean
+  stateError: boolean
+  minMaxValue : minMaxValueType
+}
+
+export function Counter(props:CounterPropsType) {
+
+  const minValue = props.minMaxValue.minValue
+  const maxValue = props.minMaxValue.maxValue
+  
+  const [count, setCount] = useState<number>(props.minMaxValue.minValue);
+
 
   const incrementCount = () => {
     if (count < maxValue) {
@@ -25,24 +40,26 @@ export function Counter() {
     color: count === maxValue ? "red" : "black",
   };
 
+
+
   return (
     <div className="App">
       <div>
         <div className="count">
-          {count === maxValue ? (
-            <h2 style={countStyle}>Total</h2>) : (<h2>Counter</h2>)}
-          <p style={countStyle}>{count}</p>
+          {/* {count === maxValue ? (
+            <h2 >Total</h2>) : (<h2>Counter</h2>)} */}
+         {props.stateError ? <p className="error">Incorrect value!</p> :props.changeData ? <p>Enter values and press "set"</p> :<p style={countStyle}>{count}</p>}
         </div>
         <div className="buttonGroup">
           <Button
             title="inc"
             callback={incrementCount}
-            disabled={count === maxValue ? true : false}
+            disabled={count === maxValue || props.changeData}
           />
           <Button
             title="reset"
             callback={resetCount}
-            disabled={count === minValue ? true : false}
+            disabled={count === minValue || props.changeData}
           />
         </div>
       </div>
