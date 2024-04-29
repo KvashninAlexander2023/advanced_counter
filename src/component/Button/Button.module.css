@@ -1,0 +1,28 @@
+
+
+
+.colorText {
+  background-color: aqua;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  /* border: none; */
+}
+
+.dis {
+  border-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  &:hover{
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  &:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+  }
+}
+
