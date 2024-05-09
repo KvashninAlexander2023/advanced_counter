@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Counter } from "./component/Counter/Counter";
 import { CounterSettings } from "./component/CounterSettings/CounterSettings";
 
 function App() {
 
-  const minMaxValue = {
+  const minMaxValue:stateType = {
     maxValue: 10,
     minValue: 1,
   };
 
+
+  type stateType = {
+    maxValue: number
+    minValue: number
+  }
   // состояние когда вводим данные
   const [changeData, setChangeData] = useState<boolean>(false);
   // console.log("статус changeData:", changeData);
@@ -18,11 +23,28 @@ function App() {
   const [stateError, setStateError] = useState<boolean>(false);
   // console.log("статус stateError:", stateError);
 
-
+  
   //текущее состояние введенных значений после нажатия кнопки set
-  const [val, setVal] = useState(minMaxValue);
+  const [val, setVal] = useState<stateType>(getLocalStorageNumber("minMaxValue"));
+
+  //функция которая проверяет есть ли значение в localStorage, если нет берет начальное значение, если есть берет из localStorage
+  function getLocalStorageNumber(value:string):stateType{
+    const storedValue = localStorage.getItem(value);
+    return storedValue ? JSON.parse(storedValue) : minMaxValue;
+};
 
 
+  // useEffect(()=>{
+  //   let localValue = localStorage.getItem("minMaxValue")
+  //   if(localValue){
+  //     let a = JSON.parse(localValue)
+  //     setVal(a)
+  //   }
+  // },[])
+
+  useEffect(()=>{
+    localStorage.setItem("minMaxValue", JSON.stringify(val))
+  },[val])
 
   // const setMinMaxValue = (maxValue: number, minValue: number) => {
   //   minMaxValue.maxValue = maxValue;
@@ -32,7 +54,8 @@ function App() {
   // };
   function setMinMaxValue(maxValue: number, minValue: number) {
     // console.log("minMax", maxValue, minValue);
-    setVal((val) => ({ ...val,maxValue: maxValue, minValue: minValue }));
+    setVal((val) => ({ ...val,maxValue, minValue }));
+    
    
     // setVal(()=>({...val}))
     // setCount(val.minValue)

@@ -7,20 +7,6 @@
 }
 
 
-
-
-
-/* .App {
-  text-align: center;
-  width: 350px;
-  height: 250px;
-  border: 3px solid aqua;
-  margin: 130px auto;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #505050;
-} */
-
 .CounterWrapper{
   width: 100vw;
   height: 100vh;
@@ -31,56 +17,3 @@
   gap: 50px;
   background-color: #505050;
 }
-/* 
-.count {
-  background-color: aqua;
-  border-radius: 10px;
-  height: 150px;
-
-} */
-/* 
-.count > p{
-  font-size: 25px;
-  margin-top: 0;
-  font-weight: 600;
-}
-
-.count>h2{
-  margin-bottom: 0;
-} */
-
-/* .buttonGroup{
-  border: 3px solid aqua;
-  border-radius: 10px;
-  margin-top: 20px;
-  padding: 5px;
-} */
-
-/* .but{
-  background-color: rgb(72, 76, 76);
-  width: 100px;
-  height: 30px;
-  border-radius: 10px;
-  margin: 5px;
-  font-size: 20px;
-  font-weight: 600;
-  border: none;
- } */
-
-/* .error{
-  color: red
-} */
-
- /* .loader {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-} */

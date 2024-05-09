@@ -13,9 +13,7 @@ type SettingsFieldPropsType = {
 function SettingsField (props: SettingsFieldPropsType) {
 
   const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
-    props.callback(+e.currentTarget.value)
-    // console.log(e.currentTarget.value);
-    
+    props.callback(+e.currentTarget.value)    
   }
 
 

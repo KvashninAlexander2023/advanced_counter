@@ -15,6 +15,9 @@
   border: 3px solid;
   border-radius: 5px;
   text-align: center;
+  font-size: 16px;
+  color: aqua;
+  background-color: transparent;
 }
 
 .input {
