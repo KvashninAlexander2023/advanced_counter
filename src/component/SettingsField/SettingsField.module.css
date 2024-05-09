@@ -1,18 +1,26 @@
 .set {
-
   display: flex;
+  font-size: 25px;
+  font-weight: 600;
   gap: 20px;
-  /* margin-top: 20px; */
   padding: 10px;
-  justify-content: center
-  
+  justify-content: center;
+  color: aqua;
+
 }
 
-.error{
-  background-color: red;
+.input, 
+.error {
+  outline: none;
+  border: 3px solid;
+  border-radius: 5px;
+  text-align: center;
 }
 
-/* .set > div {
-  display: block;
-  color: red;
-} */
+.input {
+  border-color: aqua;
+}
+
+.error {
+  border-color: red;
+}

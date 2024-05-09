@@ -1,49 +1,44 @@
 import React from "react";
-import "../../App.css";
+import s from "./CounterSettings.module.css"
 import { useState } from "react";
 import { Button } from "../Button/Button";
 import SettingsField from "../SettingsField/SettingsField";
+import { minMaxValueType } from "../Counter/Counter";
 // import s from "./component/Counter.module.css";
 
 
-// type minMaxValueType =  {
-//   minValue: number
-//   maxValue: number
-// }
 
 type CounterSettingsPropsType = {
-  changeData:boolean
-  setMinMaxValue: (a:number,b:number)=>void
-  setChangeData: (e:boolean)=>void
-  setStateError: (e:boolean)=>void
+  minMaxValue: minMaxValueType
+  changeData: boolean
+  setMinMaxValue: (a: number, b: number) => void
+  setChangeData: (e: boolean) => void
+  setStateError: (e: boolean) => void
 
 }
 
 
 
-export function CounterSettings(props:CounterSettingsPropsType) {
-  const [maxValue, setMaxValue] = useState<number>(0);
-  const [startValue, setStartValue] = useState<number>(0);
-  // console.log(maxValue);
-  // console.log(startValue);
-  
-  // let errorValue = startValue >= maxValue || startValue < 0  || maxValue < 0
+export function CounterSettings(props: CounterSettingsPropsType) {
+  const [maxValue, setMaxValue] = useState<number>(props.minMaxValue.maxValue);
+  const [startValue, setStartValue] = useState<number>(props.minMaxValue.minValue);
+
   let errorValue = false
-  
-  if(startValue >= maxValue || startValue < 0  || maxValue < 0){
+
+  if (startValue >= maxValue || startValue < 0 || maxValue < 0) {
     errorValue = true
     props.setStateError(true)
-  } else {props.setStateError(false)}
+  } else { props.setStateError(false) }
 
-  const ChangeValueOfMaxValue = (e:number) => {
+  const ChangeValueOfMaxValue = (e: number) => {
     setMaxValue(e)
     props.setChangeData(true)
   }
-  const ChangeValueOfStartValue = (e:number) => {
+  const ChangeValueOfStartValue = (e: number) => {
     setStartValue(e)
     props.setChangeData(true)
   }
- 
+
   // const minValue = 0;
   // const maxValue = 5;
 
@@ -61,32 +56,28 @@ export function CounterSettings(props:CounterSettingsPropsType) {
   //   color: count === maxValue ? "red" : "black",
   // };
 
-  
+
   const setCount = () => {
     props.setChangeData(false)
-    props.setMinMaxValue(maxValue,startValue)
+    props.setMinMaxValue(maxValue, startValue)
   }
 
 
 
   return (
-    <div className="App">
-      <div>
-        <div className="count">
-          <div> 
-            <SettingsField callback={ChangeValueOfMaxValue} value={maxValue} title="max value:" errorValue={errorValue}/>
-            <SettingsField callback={ChangeValueOfStartValue} value={startValue} title="start value:" errorValue={errorValue}/>
-          </div>
-         
+    <div className={s.app}>
+        <div className={s.settings}>
+            <SettingsField callback={ChangeValueOfMaxValue} value={maxValue} title="max value:" errorValue={errorValue} />
+            <SettingsField callback={ChangeValueOfStartValue} value={startValue} title="start value:" errorValue={errorValue} />
         </div>
-        <div className="buttonGroup">
+        <div className={s.buttonGroup}>
           <Button
             title="set"
             callback={setCount}
             disabled={errorValue || !props.changeData}
           />
         </div>
-      </div>
+      
     </div>
   );
 }

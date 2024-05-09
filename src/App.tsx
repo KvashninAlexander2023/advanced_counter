@@ -22,6 +22,8 @@ function App() {
   //текущее состояние введенных значений после нажатия кнопки set
   const [val, setVal] = useState(minMaxValue);
 
+
+
   // const setMinMaxValue = (maxValue: number, minValue: number) => {
   //   minMaxValue.maxValue = maxValue;
   //   minMaxValue.minValue = minValue;
@@ -30,7 +32,9 @@ function App() {
   // };
   function setMinMaxValue(maxValue: number, minValue: number) {
     // console.log("minMax", maxValue, minValue);
-    setVal({ maxValue: maxValue, minValue: minValue });
+    setVal((val) => ({ ...val,maxValue: maxValue, minValue: minValue }));
+   
+    // setVal(()=>({...val}))
     // setCount(val.minValue)
     // minMaxValue.maxValue = maxValue;
     // minMaxValue.minValue = minValue;
@@ -38,6 +42,7 @@ function App() {
     // console.log(val);
   }
 
+  
 
   // const [count, setCount] = useState<number>(minMaxValue.minValue);
   
@@ -59,6 +64,7 @@ function App() {
   return (
     <div className="CounterWrapper">
       <CounterSettings
+        minMaxValue={val}
         changeData={changeData}
         setChangeData={setChangeData}
         setStateError={setStateError}

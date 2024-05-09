@@ -23,7 +23,7 @@ function SettingsField (props: SettingsFieldPropsType) {
   return (
     <div className={s.set}>
         <div>{props.title}</div>
-        <input type="number" onChange={onChangeHandler} value={props.value} className={props.errorValue ? s.error : ""}/>
+        <input type="number" onChange={onChangeHandler} value={props.value} className={props.errorValue ? s.error :  s.input}/>
     </div>
     
   )}

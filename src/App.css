@@ -1,12 +1,25 @@
-.App {
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+
+
+
+
+/* .App {
   text-align: center;
   width: 350px;
   height: 250px;
   border: 3px solid aqua;
-  /* margin: 130px auto; */
+  margin: 130px auto;
   padding: 10px;
   border-radius: 10px;
-}
+  background-color: #505050;
+} */
 
 .CounterWrapper{
   width: 100vw;
@@ -15,16 +28,17 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
+  background-color: #505050;
 }
-
+/* 
 .count {
   background-color: aqua;
   border-radius: 10px;
   height: 150px;
 
-}
-
+} */
+/* 
 .count > p{
   font-size: 25px;
   margin-top: 0;
@@ -33,17 +47,17 @@
 
 .count>h2{
   margin-bottom: 0;
-}
+} */
 
-.buttonGroup{
+/* .buttonGroup{
   border: 3px solid aqua;
   border-radius: 10px;
   margin-top: 20px;
   padding: 5px;
-}
+} */
 
-.but{
-  background-color: aqua;
+/* .but{
+  background-color: rgb(72, 76, 76);
   width: 100px;
   height: 30px;
   border-radius: 10px;
@@ -51,11 +65,11 @@
   font-size: 20px;
   font-weight: 600;
   border: none;
- }
+ } */
 
-.error{
+/* .error{
   color: red
-}
+} */
 
  /* .loader {
   border: 8px solid #f3f3f3;
