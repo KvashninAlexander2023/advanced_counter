@@ -3,7 +3,7 @@
 
 .colorText {
   background-color: aqua;
-  width: 100px;
+  min-width: 120px;
   height: 30px;
   border-radius: 10px;
   margin: 5px;

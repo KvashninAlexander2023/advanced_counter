@@ -17,3 +17,24 @@
   gap: 50px;
   background-color: #505050;
 }
+
+.counterConteiner{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: #505050;
+  position: relative;
+}
+
+.buttonConteiner{
+  position: absolute;
+  display: flex;
+  top: 70px;
+}
+.isActive{
+  opacity: 0.5;
+}

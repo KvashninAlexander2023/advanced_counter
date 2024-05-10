@@ -9,8 +9,8 @@ import Counter_2 from "./Counter_2";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-// root.render(<App />);
-root.render(<Counter_1 />);
+root.render(<App />);
+// root.render(<Counter_1 />);
 // root.render(<Counter_2 />);
 
 // If you want to start measuring performance in your app, pass a function
